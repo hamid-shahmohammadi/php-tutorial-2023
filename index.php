@@ -18,6 +18,8 @@
 
 <body>
     <?php
+        // آرایه های پیوندی
+        // Associative-Arrays
         $urls=[
             [
                 'name' => 'php',
