@@ -50,7 +50,7 @@
     </ul>
 
     <?php
-        $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+        $age = array("ali"=>"35", "hamid"=>"37", "reza"=>"43");
 
         // or
 
@@ -58,9 +58,14 @@
          multi
          line */
 
-        $age['Peter'] = "35";
-        $age['Ben'] = "37";
-        $age['Joe'] = "43";
+        $age['ali'] = "35";
+        $age['hamid'] = "37";
+        $age['reza'] = "43";
+
+        foreach($age as $x => $x_value) {
+        echo "Key=" . $x . ", Value=" . $x_value;
+        echo "<br>";
+        }
     ?>
 
 </body>
