@@ -51,7 +51,11 @@
             return $filterUrls;
         }
 
-        var_dump(searchAuthor($urls,'hamid shah mohammadi'))
+        //var_dump(searchAuthor($urls,'hamid shah mohammadi'));
+
+        if(1==="1"){
+            echo "1==1";
+        }
 
     ?>
 
