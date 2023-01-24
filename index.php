@@ -37,38 +37,38 @@
                 'author' => 'hamid shah mohammadi'
             ],
 
-        ]
+        ];
+
+
+        function searchAuthor($urls,$author){
+            foreach($urls as $url){
+                $filterUrls=[];
+                if($url['author'] === 'hamid shah mohammadi'){
+                    $filterUrls[]=$url;
+                }
+            }
+
+            return $filterUrls;
+        }
+
+        var_dump(searchAuthor($urls,'hamid shah mohammadi'))
 
     ?>
 
     <ul>
-        <?php foreach($urls as $url) : ?>
+        <?php //foreach($urls as $url) : ?>
+        <?php foreach(searchAuthor($urls,'hamid shah mohammadi') as $url) : ?>
+            <?php //if($url['author'] === 'hamid shah mohammadi') : ?>
             <li>
                 <a href="<?= $url['url'] ?>" >
                 <?= $url['name'] ?>
                 </a>
             </li>
+            <?php //endif ?>
         <?php endforeach; ?>
     </ul>
 
-    <?php
-        $age = array("ali"=>"35", "hamid"=>"37", "reza"=>"43");
-
-        // or
-
-        /* comment
-         multi
-         line */
-
-        $age['ali'] = "35";
-        $age['hamid'] = "37";
-        $age['reza'] = "43";
-
-        foreach($age as $x => $x_value) {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-        }
-    ?>
+    
 
 </body>
 
