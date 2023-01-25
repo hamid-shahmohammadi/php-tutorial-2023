@@ -24,51 +24,82 @@
             [
                 'name' => 'php',
                 'url'  =>'https://www.php.net/',
-                'author' => 'john doe'
+                'author' => 'john doe',
+                'created_at'=>1391
             ],
             [
                 'name' => 'python',
                 'url'  =>'https://www.python.org/',
-                'author' => 'jane doe'
+                'author' => 'jane doe',
+                'created_at'=>1381
             ],
             [
                 'name' => 'iran laravel',
                 'url'  =>'https://iranlaravel.ir/',
-                'author' => 'hamid shah mohammadi'
+                'author' => 'hamid shah mohammadi',
+                'created_at'=>1385
             ],
 
         ];
 
+        // lambda function
+        // $searchAuthor=function ($urls,$author){
+        //     $filterUrls=[];
+        //     foreach($urls as $url){                
+        //         if($url['author'] === 'hamid shah mohammadi'){
+        //             $filterUrls[]=$url;
+        //         }
+        //     }
 
-        function searchAuthor($urls,$author){
-            foreach($urls as $url){
-                $filterUrls=[];
-                if($url['author'] === 'hamid shah mohammadi'){
-                    $filterUrls[]=$url;
-                }
-            }
+        //     return $filterUrls;
+        // };
 
-            return $filterUrls;
-        }
+        // $filterUrls=$searchAuthor($urls,'hamid shah mohammadi');
+        
+        
+        // anonymouse function
+        // function search($items,$key,$value){
+        //     $filterItem=[];
+        //     foreach($items as $item){                
+        //         if($item[$key] === $value){
+        //             $filterItem[]=$item;
+        //         }
+        //     }
 
-        //var_dump(searchAuthor($urls,'hamid shah mohammadi'));
+        //     return $filterItem;
+        // };
 
-        if(1==="1"){
-            echo "1==1";
-        }
+        // $filterUrls=search($urls,'created_at',1385);  
+        
+        // function search($items,$fn){
+        //     $filterItem=[];
+        //     foreach($items as $item){                
+        //         if($fn($item)){
+        //             $filterItem[]=$item;
+        //         }
+        //     }
+
+        //     return $filterItem;
+        // };
+
+        // $filterUrls=search($urls,function($url){
+        //     return $url['created_at'] > 1380;
+        // }); 
+        
+        $filterUrls=array_filter($urls,function($url){
+            return $url['created_at'] > 1380;
+        }); 
 
     ?>
 
     <ul>
-        <?php //foreach($urls as $url) : ?>
-        <?php foreach(searchAuthor($urls,'hamid shah mohammadi') as $url) : ?>
-            <?php //if($url['author'] === 'hamid shah mohammadi') : ?>
+        
+        <?php foreach($filterUrls as $url) : ?>            
             <li>
                 <a href="<?= $url['url'] ?>" >
                 <?= $url['name'] ?>
                 </a>
-            </li>
-            <?php //endif ?>
+            </li>           
         <?php endforeach; ?>
     </ul>
 
