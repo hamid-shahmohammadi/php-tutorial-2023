@@ -11,7 +11,7 @@
 <body>   
 <?php require "inc/nav.php"; ?>
 <div class="mt-4">
-index
+about
 </div>
 
 <script src="/js/tw.js"></script>
