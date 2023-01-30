@@ -1,2 +1,3 @@
 <?php
-require "index.view.php";
+$heading="Index";
+require "views/index.view.php";

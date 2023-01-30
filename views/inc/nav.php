@@ -28,7 +28,7 @@
       </svg>
     </button>
     <div class="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent1">
-      <a class="text-xl text-white pr-2 font-semibold" href="/">Brand</a>
+      <a class="text-xl text-white pr-2 font-semibold" href="/">Iran Laravel</a>
       <!-- Left links -->
       <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
         <li class="nav-item p-2">

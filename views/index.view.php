@@ -10,9 +10,12 @@
 </head>
 <body>   
 <?php require "inc/nav.php"; ?>
-<div class="mt-4">
-about
+<?php require "inc/heading.php"; ?>
+
+<div class="p-4">
+index
 </div>
+
 
 <script src="/js/tw.js"></script>
 
