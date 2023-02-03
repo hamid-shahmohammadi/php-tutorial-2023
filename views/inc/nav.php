@@ -43,8 +43,8 @@
         </li>
         <li class="nav-item p-2">
           <a
-            class="<?= activeLink('/about.php') ?> py-2 rounded nav-link"
-            href="/about.php"
+            class="<?= activeLink('/about') ?> py-2 rounded nav-link"
+            href="/about"
             >About</a
           >
         </li>
