@@ -5,4 +5,5 @@ $routes=[
     "/about"=>"controller/about.php",
 ];
 
+
 routeCheck($routes);

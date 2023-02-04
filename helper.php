@@ -12,8 +12,16 @@ function checkUri($url){
 function activeLink($url){
     return checkUri($url) ? 'bg-white text-black' : 'bg-gray-900 text-white';
 }
-function routeCheck($routes){
-    if(array_key_exists($_SERVER['REQUEST_URI'],$routes)){
-        require $routes[$_SERVER['REQUEST_URI']];
-    }
+
+function abort($code = 404){
+    require_once "views/$code.php";
+}
+
+function routeCheck($routes){ 
+    $url=parse_url($_SERVER['REQUEST_URI']);    
+    if(array_key_exists($url['path'],$routes)){        
+        require_once $routes[$url['path']];        
+    }else{
+        abort();
+    }    
 }
