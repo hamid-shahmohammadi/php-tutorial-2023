@@ -13,7 +13,8 @@ function activeLink($url){
     return checkUri($url) ? 'bg-white text-black' : 'bg-gray-900 text-white';
 }
 
-function abort($code = 404){
+function abort($code = 404){ 
+    http_response_code($code);  
     require_once "views/$code.php";
 }
 
