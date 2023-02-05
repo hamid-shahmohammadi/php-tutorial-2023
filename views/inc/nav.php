@@ -32,20 +32,20 @@
       <!-- Left links -->
       <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
         <li class="nav-item p-2">
-          <a class="nav-link text-white" href="/">Home</a>
+          <a class="<?= activeLink('/') ?> py-2 rounded nav-link " href="/">Home</a>
         </li>
         <li class="nav-item p-2">
           <a
             class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
-            href="/about.php"
-            >about</a
+            href="/"
+            >Contact</a
           >
         </li>
         <li class="nav-item p-2">
           <a
-            class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
-            href="#"
-            >Projects</a
+            class="<?= activeLink('/about') ?> py-2 rounded nav-link"
+            href="/about"
+            >About</a
           >
         </li>
       </ul>

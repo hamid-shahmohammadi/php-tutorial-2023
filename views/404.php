@@ -1,8 +1,8 @@
 
 <?php include "inc/head.php"; ?>
 <?php include "inc/nav.php"; ?>
-<?php include "inc/header.php"; ?>
+
 <div class="p-4">
-    about
+   404 not found
 </div>
 <?php include "inc/footer.php"; ?>

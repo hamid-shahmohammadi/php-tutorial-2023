@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-
-    <title>website</title>
-    <link rel="stylesheet" href="/css/tw.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-</head>
-<body>   
-<?php require "inc/nav.php"; ?>
-<?php require "inc/heading.php"; ?>
-
+<?php include "inc/head.php"; ?>
+<?php include "inc/nav.php"; ?>
+<?php include "inc/header.php"; ?>
 <div class="p-4">
-index
+    index
 </div>
-
-
-<script src="/js/tw.js"></script>
-
-</body>
-
-</html>
+<?php include "inc/footer.php"; ?>
