@@ -1,0 +1,10 @@
+users
+    id
+    username
+    email(unique)
+    password
+posts
+    id
+    title
+    body
+    user_id(foreinkey casscade)    
