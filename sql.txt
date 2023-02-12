@@ -7,4 +7,6 @@ posts
     id
     title
     body
-    user_id(foreinkey casscade)    
+    user_id(foreinkey casscade)
+    created_at null
+    updated_at null    
