@@ -48,6 +48,13 @@
             >About</a
           >
         </li>
+        <li class="nav-item p-2">
+          <a
+            class="<?= activeLink('/posts') ?> py-2 rounded nav-link"
+            href="/posts"
+            >Posts</a
+          >
+        </li>
       </ul>
       <!-- Left links -->
     </div>
