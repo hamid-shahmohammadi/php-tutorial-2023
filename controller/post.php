@@ -19,21 +19,18 @@ $post = $db->query(
     [       
         'id' => $_GET['id']
     ]
-)->fetch();
+)->findOrFail();
 
 // if(! $post){
 //     abort();
 // }else{
 //     require "views/post.view.php";
 // }
+athorize($post['user_id'] === $AuthUserId);
 
-if(!$post){
-    abort();
-}elseif(isset($post['user_id']) && $post['user_id'] !== $AuthUserId){  
-    abort(Response::FORBIDDEN);
-}else{
-    require "views/post.view.php";
-}
+
+require "views/post.view.php";
+
 
 
 

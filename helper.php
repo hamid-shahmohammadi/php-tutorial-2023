@@ -16,6 +16,7 @@ function activeLink($url){
 function abort($code = 404){ 
     http_response_code($code);  
     require_once "views/$code.php";
+    die();
 }
 
 function routeCheck($routes){ 
@@ -25,4 +26,11 @@ function routeCheck($routes){
     }else{
         abort();
     }    
+}
+
+function athorize($condition)
+{
+    if(!$condition){
+        abort(Response::FORBIDDEN);        
+    }
 }

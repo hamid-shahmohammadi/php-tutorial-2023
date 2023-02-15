@@ -1,6 +1,6 @@
-<?php include "inc/head.php"; ?>
-<?php include "inc/nav.php"; ?>
-<?php include "inc/header.php"; ?>
+<?php require_once "inc/head.php"; ?>
+<?php require_once "inc/nav.php"; ?>
+<?php require_once "inc/header.php"; ?>
 <div class="p-4">
        <!-- Jumbotron -->
   <div class="text-center bg-gray-50 text-gray-800 py-20 px-6">
@@ -10,4 +10,4 @@
   </div>
   <!-- Jumbotron -->
 </div>
-<?php include "inc/footer.php"; ?>
+<?php require_once "inc/footer.php"; ?>

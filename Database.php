@@ -20,7 +20,23 @@
  
          $this->statement->execute($params);
  
-         return $this->statement;
+         return $this;
+     }
+     public function find()
+     {
+        return $this->statement->fetch(PDO::FETCH_ASSOC);
+     }
+     public function findOrFail()
+     {
+        $result=$this->find();
+        if(!$result){
+            abort();            
+        }
+        return $result;
+     }
+     public function get()
+     {
+        return $this->statement->fetchAll(PDO::FETCH_ASSOC);
      }
     
  }
