@@ -28,9 +28,9 @@ function routeCheck($routes){
     }    
 }
 
-function athorize($condition)
+function athorize($condition,$status=Response::FORBIDDEN)
 {
     if(!$condition){
-        abort(Response::FORBIDDEN);        
+        abort($status);        
     }
 }
