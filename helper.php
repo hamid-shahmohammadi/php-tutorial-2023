@@ -19,10 +19,12 @@ function abort($code = 404){
     die();
 }
 
-function routeCheck($routes){ 
-    $url=parse_url($_SERVER['REQUEST_URI']);    
-    if(array_key_exists($url['path'],$routes)){        
-        require_once $routes[$url['path']];        
+function routeCheck($routes,$config){     
+    $url=parse_url($_SERVER['REQUEST_URI']);
+       
+    if(array_key_exists($url['path'],$routes)){ 
+              
+        require_once $config["base_dir"].'/'.$routes[$url['path']];        
     }else{
         abort();
     }    
@@ -33,4 +35,9 @@ function athorize($condition,$status=Response::FORBIDDEN)
     if(!$condition){
         abort($status);        
     }
+}
+
+function url($path){
+    $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+    return $root.$path;
 }

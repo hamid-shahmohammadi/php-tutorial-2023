@@ -29,7 +29,7 @@ $post = $db->query(
 athorize($post['user_id'] === $AuthUserId);
 
 
-require "views/post.view.php";
+require "views/post/show.view.php";
 
 
 

@@ -8,5 +8,8 @@ return [
     ],  
     'api'=>[
         'token'=>'fdasfafafwerewr'
-    ]  
+    ],
+    'base_dir'=> __DIR__,
+    'base_views'=>__DIR__."\\views",
+    'base_url'=>"http://localhost:8001/"  
 ];
