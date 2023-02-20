@@ -27,7 +27,7 @@
             <?php foreach ($posts as $post) : ?>
                 <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg">
                     <a href="/post?id=<?= $post['id'] ?>">
-                        <?= $post['title'] ?>
+                        <?= htmlspecialchars($post['title']) ?>
                     </a>
                 </li>
             <?php endforeach ?>
