@@ -1,18 +1,21 @@
 <?php
+
+require 'Validator.php';
 $heading="Create Posts";
 $config=require('config.php');
 $db=new Database($config['database']);
 
+// dd(Validator::email('info@iranlaravel.ir'));
+
 if($_SERVER["REQUEST_METHOD"] === "POST"){
     $errors=[];
     
-    if(strlen($_POST['title']) === 0){
-        $errors['title']='the title is required';
+    
+    if(! Validator::string($_POST['title'],1,100)){
+        $errors['title']='the title is not more than 100 characters required';
     }
-    if(strlen($_POST['title']) > 100){
-        $errors['title']='the title can not more than 100 characters.';
-    }
-    if(strlen($_POST['body']) === 0){
+   
+    if(! Validator::string($_POST['body'])){
         $errors['body']='the body is required';
     }
 
@@ -22,8 +25,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             'body'=>$_POST['body'],
             'user_id'=>3,
         ]);
+        $success='create post succes';
     }
-
 }
 
 

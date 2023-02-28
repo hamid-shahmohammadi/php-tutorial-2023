@@ -10,6 +10,7 @@
 
 <div class="p-4">
   <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
+    <div class="text-green-600"><?= $success ?? null ?></div>
     <form method="POST">
       <div class="form-group mb-6">
         <input value="<?= isset($_POST['title']) ? $_POST['title'] : '' ?>"
