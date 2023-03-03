@@ -1,8 +1,10 @@
 <?php
 
-$heading="Index";
+view('index',[
+    'heading'=>'Index',
+    'name'=>'hamid'
+]);
 
-require "views/index.view.php";
 
 
 
