@@ -1,4 +1,7 @@
 <?php
+namespace Core;
+use PDO;
+
  class Database
  {
      
@@ -9,7 +12,7 @@
      {        
          $dbs = 'mysql:'.http_build_query($config,'',';');
         
-         $this->dbh = new PDO($dbs,  $username, $password,[
+         $this->dbh = new \PDO($dbs,  $username, $password,[
              PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
          ]);
        

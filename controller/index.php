@@ -1,8 +1,8 @@
 <?php
 
-$heading="Index";
-
-require "views/index.view.php";
+view('index',[
+    'heading'=>'Index'
+]);
 
 
 

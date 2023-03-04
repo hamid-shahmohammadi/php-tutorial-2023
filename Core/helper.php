@@ -41,3 +41,12 @@ function url($path){
     $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
     return $root.$path;
 }
+
+function base_path($path){
+    return BASE_PATH.$path.'.php';
+}
+
+function view($path,$attr=[]){
+    extract($attr);
+    require BASE_PATH.'views/'.$path.'.view.php';
+}

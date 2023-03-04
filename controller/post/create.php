@@ -1,14 +1,16 @@
 <?php
 
-require 'Validator.php';
-$heading="Create Posts";
-$config=require('config.php');
+use Core\Database;
+use Core\Validator;
+
+$config=require base_path('config');
 $db=new Database($config['database']);
 
-// dd(Validator::email('info@iranlaravel.ir'));
+$errors=[];
+$success=null;
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $errors=[];
+    
     
     
     if(! Validator::string($_POST['title'],1,100)){
@@ -29,5 +31,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     }
 }
 
-
-require $config['base_views']."/post/create.view.php";
+view('post/create',[
+    'heading'=>'Create Post',
+    'config'=>$config,
+    'errrors'=>$errors,
+    'success'=>$success
+]);

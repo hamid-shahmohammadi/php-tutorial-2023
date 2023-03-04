@@ -1,18 +1,13 @@
 <?php
-$heading="Post";
+
+use Core\Database;
+
 $AuthUserId=3;
 
-$config=require('config.php');
+$config=require base_path('config');
 $db=new Database($config['database']);
 
 
-// $post = $db->query(
-//     'select * from posts where user_id = :user_id and id = :id',
-//     [
-//         'user_id'=> 3, // auth user
-//         'id' => $_GET['id']
-//     ]
-// )->fetch();
 
 $post = $db->query(
     'select * from posts where id = :id',
@@ -21,15 +16,16 @@ $post = $db->query(
     ]
 )->findOrFail();
 
-// if(! $post){
-//     abort();
-// }else{
-//     require "views/post.view.php";
-// }
+
 athorize($post['user_id'] === $AuthUserId);
 
 
-require "views/post/show.view.php";
+view('post/show',[
+    'heading'=>'Post',
+    'config'=>$config,
+    'post'=>$post,
+
+]);
 
 
 
