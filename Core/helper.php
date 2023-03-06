@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+use Core\Response;
 function dd($value){
     echo "<pre>";
     var_dump($value);
@@ -50,3 +53,11 @@ function view($path,$attr=[]){
     extract($attr);
     require BASE_PATH.'views/'.$path.'.view.php';
 }
+
+// cross site request forgery
+function csrf(){
+    $_SESSION["token"]= bin2hex(random_bytes(32));
+    return $_SESSION["token"];
+}
+
+

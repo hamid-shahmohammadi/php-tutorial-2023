@@ -9,7 +9,16 @@ $db=new Database($config['database']);
 $errors=[];
 $success=null;
 
+
 if($_SERVER["REQUEST_METHOD"] === "POST"){
+
+    if(!isset($_POST['token']) || !isset($_SESSION["token"])){
+        $errors['csrf']='CSRF Token not set';
+    }
+
+    elseif($_POST['token'] !== $_SESSION["token"]){
+        $errors['csrf']='CSRF Token Not Match';
+    }
     
     
     
@@ -20,7 +29,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     if(! Validator::string($_POST['body'])){
         $errors['body']='the body is required';
     }
-
+  
+    
     if(empty($errors)){
         $db->query("INSERT INTO `posts` (`title`, `body`, `user_id`) VALUES (:title, :body, :user_id)",[
             'title'=>$_POST['title'],

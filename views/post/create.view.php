@@ -13,6 +13,7 @@
     <div class="text-green-600"><?= $success ?? null ?></div>
     <form method="POST">
       <div class="form-group mb-6">
+        <input type="hidden" name="token" value="<?= csrf() ?>" />
         <input value="<?= isset($_POST['title']) ? $_POST['title'] : '' ?>"
         name="title" type="text" class="form-control block
         w-full
