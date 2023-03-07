@@ -18,7 +18,7 @@ function activeLink($url){
 
 function abort($code = 404){ 
     http_response_code($code);  
-    require_once "views/$code.php";
+    require_once base_path("views/$code");
     die();
 }
 
