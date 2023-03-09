@@ -1,4 +1,7 @@
 <?php
+namespace Core;
+use PDO;
+
 class Database{    
     
     public $pdo;
@@ -7,7 +10,7 @@ class Database{
     public function __construct($config,$username='root',$password='')
     {        
         $dsn='mysql:'.http_build_query($config,'',';');
-        $this->pdo = new PDO($dsn, $username, $password);
+        $this->pdo = new \PDO($dsn, $username, $password);
     }
 
     public function query($query,$params=[])

@@ -3,8 +3,10 @@
 <?php include $config['base_views'] . "/inc/header.php"; ?>
 <div class="p-4">
   <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-    <form method="POST">
+    <div class="text-green-700"><?= $success ?? null ?></div>
+    <form action="" method="POST">
       <div class="form-group mb-6">
+        <input type="hidden" name="token" value="<?= csrf() ?>"/>
         <input value="<?= $_POST['title'] ?? '' ?>"
         name="title" type="text" class="form-control block
         w-full

@@ -1,15 +1,18 @@
 <?php
-const BASE_DIR=__DIR__."\..\\";
+const BASE_DIR=__DIR__."/../";
 
-require BASE_DIR."helper.php";
+require BASE_DIR."/Core/helper.php";
 
 spl_autoload_register(function($class){
-   
-    require base_path('core/'.$class);
+    
+    $class=str_replace('\\','/',$class);
+    
+    
+    require base_path($class);
 });
 
 
-base_dir('routes');
+require base_path('Core\router');
 
 
 

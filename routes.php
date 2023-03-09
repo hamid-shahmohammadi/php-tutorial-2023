@@ -1,12 +1,11 @@
 <?php
 
-$routes=[
-    "/"=>"controller/index.php",
-    "/about"=>"controller/about.php",
-    "/posts"=>"controller/post/index.php",
-    "/post"=>"controller/post/show.php",
-    "/post/create"=>"controller/post/create.php",
+return [
+    "/"=>"controller/index",
+    "/about"=>"controller/about",
+    "/posts"=>"controller/post/index",
+    "/post"=>"controller/post/show",
+    "/post/create"=>"controller/post/create",
 ];
 
 
-routeCheck($routes);

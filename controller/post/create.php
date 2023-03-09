@@ -1,12 +1,24 @@
 <?php
 
+use Core\Database;
+use Core\Validator;
+
 $config=require base_path("config");
-// require $config['base_dir'].'/Validator.php';
+
 $db=new Database($config['database']);
+
+$errors=[];
+$success=null;
 
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-    $errors=[];
+
+    if(!isset($_POST['token']) || !isset($_SESSION['token'])){
+        $errors['csrf']='CSRF Token Not Set';
+    }elseif($_POST['token'] != $_SESSION['token']){
+        $errors['csrf']='CSRF Token Not Match';
+    }
+
    
     if(! Validator::string($_POST['title'],1,100)){
         $errors['title']="this is title more than 100 character required";
@@ -15,6 +27,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     if(! Validator::string($_POST['body'])){
         $errors['body']="this is body required";
     }
+   
 
     if(empty($errors)){
 
@@ -23,16 +36,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             'title'=>$_POST['title'],
             'body'=>$_POST['body'],
             'user_id'=>3]);
+
+            $success="success created post";
     }
     
 }
 
 
-// require $config['base_views']."/post/create.view.php";
+
 view('post/create',[
     'config'=>$config,
     'heading'=>'Create Post',
-    'errors'=> $errors ?? ''
+    'errors'=> $errors,
+    'success'=>$success
 ]);
 
 
