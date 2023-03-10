@@ -15,6 +15,7 @@
 
 
         <form method="POST">
+            <input type="hidden" name="_method" value="DELETE"/>
             <input type="hidden" name="id" value="<?= $post['id'] ?>"/>
             <input type="hidden" name="token" value="<?= csrf() ?>"/>
             <button type="submit" class="bg-red-500 text-white mb-4 py-2 px-3 rounded-md">Delete</button>
