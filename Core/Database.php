@@ -2,44 +2,38 @@
 namespace Core;
 use PDO;
 
- class Database
- {
-     
-     public $dbh;
-     public $statement;
- 
-     public function __construct($config,$username='root',$password='')
-     {        
-         $dbs = 'mysql:'.http_build_query($config,'',';');
-        
-         $this->dbh = new \PDO($dbs,  $username, $password,[
-             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-         ]);
-       
-     }
-     public function query($query,$params=[])
-     {
-         $this->statement = $this->dbh->prepare($query);
- 
-         $this->statement->execute($params);
- 
-         return $this;
-     }
-     public function find()
-     {
-        return $this->statement->fetch(PDO::FETCH_ASSOC);
-     }
-     public function findOrFail()
-     {
+class Database{    
+    
+    public $pdo;
+    protected $state;
+
+    public function __construct($config,$username='root',$password='')
+    {        
+        $dsn='mysql:'.http_build_query($config,'',';');
+        $this->pdo = new \PDO($dsn, $username, $password);
+    }
+
+    public function query($query,$params=[])
+    {
+        $this->state=$this->pdo->prepare($query);
+        $this->state->execute($params);
+        return $this;
+    }
+    public function get()
+    {
+        return $this->state->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function find()
+    {
+        return $this->state->fetch(PDO::FETCH_ASSOC);
+    }
+    public function findOrFail()
+    {
         $result=$this->find();
-        if(!$result){
-            abort();            
+        if(! $result){
+            abort();
         }
         return $result;
-     }
-     public function get()
-     {
-        return $this->statement->fetchAll(PDO::FETCH_ASSOC);
-     }
-    
- }
+    }
+}

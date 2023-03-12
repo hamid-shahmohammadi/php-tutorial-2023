@@ -1,1 +1,0 @@
-curl -X POST http://localhost:8001/post/create -d 'title=t888&body=b888'

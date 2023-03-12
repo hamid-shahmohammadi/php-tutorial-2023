@@ -1,15 +1,16 @@
 <?php
+
 return [
-    'database'=>[
+    'database' => [
         'host' => 'localhost',
-        'port' => 3306,
         'dbname' => 'website',
-        'charset'=>'utf8mb4'
-    ],  
-    'api'=>[
-        'token'=>'fdasfafafwerewr'
+        'port' => '3306',
+        'charset' => 'utf8mb4',
     ],
-    'base_dir'=> __DIR__,
+    'api'=> [
+        'token'=>'jiirjiregirgje'
+    ],
+    'base_dir'=>__DIR__,
     'base_views'=>__DIR__."\\views",
-    'base_url'=>"http://localhost:8001/"  
+    'base_url'=>(!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/'
 ];

@@ -1,20 +1,37 @@
 <?php
 
+session_start();
 
+use Core\Router;
 
-const BASE_PATH = __DIR__.'/../';
+const BASE_DIR=__DIR__."/../";
 
-require BASE_PATH."/Core/helper.php";
+require BASE_DIR."/Core/helper.php";
 
 spl_autoload_register(function($class){
-    // dd($class);
-    // core\Database
+    
     $class=str_replace('\\','/',$class);
-   
+    
+    
     require base_path($class);
 });
 
-require base_path("Core/router");
+
+$router=new Router();
+require base_path('routes');
+
+$uri=parse_url($_SERVER['REQUEST_URI'])['path'];
+$method= $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+
+$router->route($uri,$method);
+
+
+
+
+
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 <?php
-session_start();
 
 use Core\Response;
+
 function dd($value){
     echo "<pre>";
     var_dump($value);
@@ -24,31 +24,49 @@ function abort($code = 404){
 
 
 
-function athorize($condition,$status=Response::FORBIDDEN)
+function autorize($condition,$status=Response::FORBIDDEN)
 {
-    if(!$condition){
-        abort($status);        
+    if($condition){
+        abort($status);
     }
 }
 
 function url($path){
-    $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
-    return $root.$path;
+    $config=require base_path('config');
+    return $config['base_url'].$path;
 }
 
-function base_path($path){
-    return BASE_PATH.$path.'.php';
+function base_dir($path){    
+    require BASE_DIR.$path.".php";
+}
+function base_path($path){   
+    
+    return BASE_DIR.$path.".php";
 }
 
 function view($path,$attr=[]){
     extract($attr);
-    require BASE_PATH.'views/'.$path.'.view.php';
+    require BASE_DIR."/views/".$path.".view.php";
 }
 
-// cross site request forgery
 function csrf(){
-    $_SESSION["token"]= bin2hex(random_bytes(32));
+    $_SESSION["token"]=bin2hex(random_bytes(32));
     return $_SESSION["token"];
 }
 
+function checkToken($post_token,$session_token){
 
+    if (!isset($post_token) || !isset($session_token)) {
+        return false;
+    } elseif ($post_token != $session_token) {
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function now(){
+    date_default_timezone_set('Asia/Tehran');
+    $date = date('Y-m-d H:i:s');
+    return $date;
+}

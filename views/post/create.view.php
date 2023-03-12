@@ -1,20 +1,13 @@
-<?php include $config["base_views"] . "/inc/head.php"; ?>
-<?php include $config["base_views"] . "/inc/nav.php"; ?>
-
-<header class="bg-white shadow flex py-6 px-4">
-  <div class=" flex">
-    <h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-blue-600"><?= $heading ?></h1>
-
-  </div>
-</header>
-
+<?php include $config['base_views'] . "/inc/head.php"; ?>
+<?php include $config['base_views'] . "/inc/nav.php"; ?>
+<?php include $config['base_views'] . "/inc/header.php"; ?>
 <div class="p-4">
   <div class="block p-6 rounded-lg shadow-lg bg-white max-w-md">
-    <div class="text-green-600"><?= $success ?? null ?></div>
-    <form method="POST">
-      <div class="form-group mb-6">
-        <input type="hidden" name="token" value="<?= csrf() ?>" />
-        <input value="<?= isset($_POST['title']) ? $_POST['title'] : '' ?>"
+    <div class="text-green-700"><?= $success ?? null ?></div>
+    <form action="<?= url('post/store') ?>" method="POST">
+      <div class="form-group mb-6">        
+        <input type="hidden" name="token" value="<?= csrf() ?>"/>
+        <input value="<?= $_POST['title'] ?? '' ?>"
         name="title" type="text" class="form-control block
         w-full
         px-3
@@ -28,12 +21,10 @@
         transition
         ease-in-out
         m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7" placeholder="Title" >
-        <?php if (isset($errors['title'])) : ?>
-          <div class="my-2 text-xs text-red-700" role="alert">
-            <?= $errors['title'] ?>
-          </div>
-        <?php endif ?>
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7" placeholder="Title" required>
+        
+          <div class="text-red-500"><?= $errors['title'] ?? '' ?></div>
+        
       </div>
 
       <div class="form-group mb-6">
@@ -53,14 +44,10 @@
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-      " id="exampleFormControlTextarea13" rows="3" placeholder="Body">
-          <?= $_POST['body'] ?? '' ?>
-      </textarea>
-        <?php if (isset($errors['body'])) : ?>
-          <div class="my-2 text-sm text-red-700" role="alert">
-            <?= $errors['body'] ?>
-          </div>
-        <?php endif ?>
+      " id="body" rows="3" placeholder="Body" required><?= $_POST['body'] ?? '' ?></textarea>
+        
+          <div class="text-red-500"><?= $errors['body'] ?? '' ?></div>
+       
       </div>
 
       <button type="submit" class="
@@ -84,4 +71,4 @@
     </form>
   </div>
 </div>
-<?php include $config["base_views"] . "/inc/footer.php"; ?>
+<?php include $config['base_views'] . "/inc/footer.php"; ?>

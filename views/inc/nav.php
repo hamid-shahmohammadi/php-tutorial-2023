@@ -34,19 +34,18 @@
         <li class="nav-item p-2">
           <a class="<?= activeLink('/') ?> py-2 rounded nav-link " href="/">Home</a>
         </li>
-       
+        <li class="nav-item p-2">
+          <a
+            class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+            href="/posts"
+            >Posts</a
+          >
+        </li>
         <li class="nav-item p-2">
           <a
             class="<?= activeLink('/about') ?> py-2 rounded nav-link"
             href="/about"
             >About</a
-          >
-        </li>
-        <li class="nav-item p-2">
-          <a
-            class="<?= activeLink('/posts') ?> py-2 rounded nav-link"
-            href="/posts"
-            >Posts</a
           >
         </li>
       </ul>

@@ -1,8 +1,10 @@
 <?php
 
 view('index',[
-    'heading'=>'Index'
+    'heading'=>'Index',
+    'name'=>'hamid'
 ]);
+
 
 
 
