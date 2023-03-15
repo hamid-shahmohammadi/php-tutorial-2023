@@ -1,10 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$config=require BASE_DIR."config.php";
+$config=require base_path("config");
 
-$db=new Database($config['database']);
+$db=App::resolve(Database::class);
 
 $posts=$db->query("select * from posts where user_id= :user_id and deleted_at is null",['user_id'=>3])->get();
 

@@ -1,10 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
 $AuthUserId = 3;
-$config = require BASE_DIR . "config.php";
-$db = new Database($config['database']);
+$config=require base_path("config");
+$db=App::resolve(Database::class);
 $errors = [];
 
 $post = $db->query(
