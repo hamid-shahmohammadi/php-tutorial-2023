@@ -13,12 +13,14 @@
             </ul>
         <?php endif ?>
 
+        <a class="bg-blue-500 text-white py-2 px-3 rounded-md" href="<?= url('post/edit') ?>?id=<?= $post['id'] ?>">Edit</a>
+
 
         <form method="POST" action="<?= url('post') ?>">
             <input type="hidden" name="_method" value="DELETE"/>
             <input type="hidden" name="id" value="<?= $post['id'] ?>"/>
             <input type="hidden" name="token" value="<?= csrf() ?>"/>
-            <button type="submit" class="bg-red-500 text-white mb-4 py-2 px-3 rounded-md">Delete</button>
+            <button type="submit" class="bg-red-500 text-white my-4 py-2 px-3 rounded-md">Delete</button>
         </form>
         <a class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="/posts" role="button">Go Posts</a>
     </div>
