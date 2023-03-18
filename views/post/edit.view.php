@@ -7,6 +7,7 @@
     <form action="<?= url('post/update') ?>" method="POST">
       <div class="form-group mb-6">        
         <input type="hidden" name="id" value="<?= $post['id'] ?>"/>
+        <input type="hidden" name="_method" value="PATCH"/>
         <input type="hidden" name="token" value="<?= csrf() ?>"/>
         <input value="<?= $post['title'] ?>"
         name="title" type="text" class="form-control block
