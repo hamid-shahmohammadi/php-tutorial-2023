@@ -26,7 +26,7 @@
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7" 
         placeholder="Title" required>  
          
-        
+        <div class="text-red-500"><?= $errors['title'] ?? '' ?></div>
       </div>
 
       <div class="form-group mb-6">
@@ -46,7 +46,8 @@
         ease-in-out
         m-0
         focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-      " id="body" rows="3" placeholder="Body" required><?= $post['body'] ?></textarea>    
+      " id="body" rows="3" placeholder="Body" required><?= $post['body'] ?></textarea>
+      <div class="text-red-500"><?= $errors['body'] ?? '' ?></div>    
        
       </div>
       <button type="submit" class="      
