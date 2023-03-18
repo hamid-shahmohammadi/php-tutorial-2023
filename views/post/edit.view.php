@@ -65,7 +65,7 @@
       transition
       duration-150
       ease-in-out">Update</button>
-      <a href="<?= url('post/update') ?>" type="submit" class="      
+      <a href="<?= url('posts') ?>" class="      
       px-6
       py-2.5
       bg-blue-100
